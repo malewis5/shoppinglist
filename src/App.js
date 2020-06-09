@@ -12,13 +12,27 @@ function App() {
   return (
     <GroceryProvider>
       <CartProvider>
-        <div className="grid-container">
+        <div className="container">
           <div className="header">
             <h3>React Test</h3>
           </div>
-          <AddGroceryItem />
-          <GroceryList />
-          <ShoppingList />
+          <div className="row">
+            <div className="column">
+              <div className="card">
+                <AddGroceryItem />
+              </div>
+            </div>
+            <div className="column">
+              <div className="card">
+                <GroceryList />
+              </div>
+            </div>
+            <div className="column">
+              <div className="card">
+                <ShoppingList />
+              </div>
+            </div>
+          </div>
         </div>
       </CartProvider>
     </GroceryProvider>

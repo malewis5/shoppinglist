@@ -43,34 +43,42 @@ export const AddGroceryItem = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Item Name..."
-        value={name}
-        onChange={handleNameChange}
-      />
-      <input
-        type="number"
-        name="quantity"
-        placeholder="Quantity"
-        value={quantity}
-        onChange={handleQuantityChange}
-      />
-      <input
-        type="checkbox"
-        name="favorite"
-        onClick={() => setFavorite(!favorite)}
-      />
-      <input
-        type="number"
-        name="sugars"
-        placeholder="Sugars"
-        value={sugars}
-        onChange={handleSugarChange}
-      />
-      <button>Submit</button>
-    </form>
+    <div>
+      <h1>Add Item</h1>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Item Name..."
+          value={name}
+          onChange={handleNameChange}
+        />
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Quantity"
+          value={quantity}
+          onChange={handleQuantityChange}
+        />
+        <p>
+          Mark as Favorite{" "}
+          <input
+            type="checkbox"
+            name="favorite"
+            onClick={() => setFavorite(!favorite)}
+          />
+        </p>
+
+        <input
+          type="number"
+          name="sugars"
+          placeholder="Sugars"
+          value={sugars}
+          onChange={handleSugarChange}
+        />
+        <button>Submit</button>
+      </form>
+    </div>
   );
 };

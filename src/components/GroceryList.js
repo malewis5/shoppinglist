@@ -19,7 +19,15 @@ export const GroceryList = (props) => {
     setItems(newState);
   };
   const handleAddToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    if (cartItems.includes(item)) {
+      item.quantity++;
+      const newCart = cartItems.filter((id) => id !== item.id);
+      setCartItems(newCart);
+    } else {
+      item.quantity = 1;
+      const newCart = [...cartItems, item];
+      setCartItems(newCart);
+    }
   };
 
   return (
