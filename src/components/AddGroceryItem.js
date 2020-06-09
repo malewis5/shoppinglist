@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { GroceryContext } from "../context/GroceryContext";
-import { GroceryList } from "./GroceryList";
 
 export const AddGroceryItem = () => {
   const [name, setName] = useState("");
