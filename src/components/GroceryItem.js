@@ -2,7 +2,7 @@ import React from "react";
 
 export const GroceryItem = (props) => {
   return (
-    <div className="list-item">
+    <div>
       <h3>{props.item.name}</h3>
       <p>{props.item.quantity}</p>
       <button onClick={props.handleDeleteClick}>Delete</button>
