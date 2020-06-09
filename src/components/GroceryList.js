@@ -15,7 +15,6 @@ export const GroceryList = (props) => {
     const index = items.findIndex((elem) => elem.id === id);
     const newState = [...items];
     newState[index].favorite = !newState[index].favorite;
-    console.log(newState);
     setItems(newState);
   };
   const handleAddToCart = (item) => {
@@ -23,8 +22,11 @@ export const GroceryList = (props) => {
       item.quantity++;
       const newCart = cartItems.filter((id) => id !== item.id);
       setCartItems(newCart);
-    } else {
+    } else if (item.quantity === 0) {
       item.quantity = 1;
+      const newCart = [...cartItems, item];
+      setCartItems(newCart);
+    } else {
       const newCart = [...cartItems, item];
       setCartItems(newCart);
     }
