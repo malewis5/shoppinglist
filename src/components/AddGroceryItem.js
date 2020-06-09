@@ -22,20 +22,32 @@ export const AddGroceryItem = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItems([
-      ...items,
-      {
-        id: items.length + 1,
-        name: name,
-        favorite: favorite,
-        quantity: quantity,
-        nutrition: [
-          {
-            sugars: sugars,
-          },
-        ],
-      },
-    ]);
+
+    const newItem = {
+      id: items.length + 1,
+      name: name,
+      favorite: favorite,
+      quantity: quantity,
+      nutrition: [
+        {
+          sugars: sugars,
+        },
+      ],
+    };
+
+    // Check if it already exists
+    const duplicateCheck = items.findIndex(
+      (elem) => elem.name === newItem.name
+    );
+
+    if (duplicateCheck !== -1) {
+      setName("");
+      setQuantity("");
+      setFavorite(false);
+      setSugars("");
+      return alert("Item already exists");
+    }
+    setItems([...items, newItem]);
     setName("");
     setQuantity("");
     setFavorite(false);
@@ -48,6 +60,7 @@ export const AddGroceryItem = () => {
 
       <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           name="name"
           placeholder="Item Name..."
@@ -55,6 +68,8 @@ export const AddGroceryItem = () => {
           onChange={handleNameChange}
         />
         <input
+          required
+          min="0"
           type="number"
           name="quantity"
           placeholder="Quantity"
@@ -62,15 +77,25 @@ export const AddGroceryItem = () => {
           onChange={handleQuantityChange}
         />
         <p>
-          Mark as Favorite{" "}
-          <input
-            type="checkbox"
-            name="favorite"
-            onClick={() => setFavorite(!favorite)}
-          />
+          Mark as Favorite
+          {favorite ? (
+            <input
+              type="checkbox"
+              name="favorite"
+              checked
+              onClick={() => setFavorite(!favorite)}
+            />
+          ) : (
+            <input
+              type="checkbox"
+              name="favorite"
+              onClick={() => setFavorite(!favorite)}
+            />
+          )}
         </p>
 
         <input
+          required
           type="number"
           name="sugars"
           placeholder="Sugars"
