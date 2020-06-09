@@ -36,6 +36,10 @@ export const AddGroceryItem = () => {
         ],
       },
     ]);
+    setName("");
+    setQuantity("");
+    setFavorite(false);
+    setSugars("");
   };
 
   return (

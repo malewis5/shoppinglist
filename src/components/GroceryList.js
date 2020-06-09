@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { GroceryItem } from "./GroceryItem";
 import { GroceryContext } from "../context/GroceryContext";
+import { CartContext } from "../context/CartContext";
 
 export const GroceryList = (props) => {
   const [items, setItems] = useContext(GroceryContext);
+  const [cartItems, setCartItems] = useContext(CartContext);
+
   const handleDeleteClick = (id) => {
     const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
@@ -15,12 +18,14 @@ export const GroceryList = (props) => {
     console.log(newState);
     setItems(newState);
   };
+  const handleAddToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
 
   return (
     <div className="grocery-list">
-      <div className="header">
-        <h1>Grocery List</h1>
-      </div>
+      <h1>Grocery List</h1>
+
       <div className="list-content">
         {items.map((item) => {
           return (
@@ -29,6 +34,7 @@ export const GroceryList = (props) => {
               key={item.id}
               handleDeleteClick={handleDeleteClick.bind(this, item.id)}
               handleToggleFavorite={handleToggleFavorite.bind(this, item.id)}
+              handleAddToCart={handleAddToCart.bind(this, item)}
             />
           );
         })}
