@@ -12,6 +12,7 @@ export const GroceryList = (props) => {
     setItems(newItems);
   };
   const handleToggleFavorite = (id) => {
+    console.log(id);
     const index = items.findIndex((elem) => elem.id === id);
     const newState = [...items];
     newState[index].favorite = !newState[index].favorite;

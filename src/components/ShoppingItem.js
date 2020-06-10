@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import "./ShoppingItem.css";
 import { CartContext } from "../context/CartContext";
 import {
   FaTimes,
@@ -6,12 +7,14 @@ import {
   FaRegStar,
   FaStar,
   FaRegMinusSquare,
+  FaArrowDown,
 } from "react-icons/fa";
 
 export const ShoppingItem = (props) => {
   const { item } = props;
   const [cartItems, setCartItems] = useContext(CartContext);
-  const [showNutrition, setShowNutrition] = useState(false);
+  const [moreInfo, setMoreInfo] = useState(false);
+
   const increaseCount = (item) => {
     const index = cartItems.findIndex((elem) => elem.name === item.name);
     const newState = [...cartItems];
@@ -32,10 +35,17 @@ export const ShoppingItem = (props) => {
     item.quantity = 0;
     setCartItems(newState);
   };
+  const toggleFavorite = (id) => {
+    const index = cartItems.findIndex((elem) => elem.id === id);
+    const newState = [...cartItems];
+    newState[index].favorite = !newState[index].favorite;
+    setCartItems(newState);
+  };
   return (
     <div className="panel panel-default">
       <div className="panel-heading">
         {props.item.name}
+
         <FaTimes
           style={{ cursor: "pointer", float: "right", color: "red" }}
           onClick={() => removeFromCart(item)}
@@ -50,17 +60,17 @@ export const ShoppingItem = (props) => {
         />
         {props.item.favorite ? (
           <FaStar
-            onChange={props.handleToggleFavorite}
+            onClick={(id) => toggleFavorite(item.id)}
             style={{
               cursor: "pointer",
               float: "right",
-              color: "black",
+              color: "yellow",
               marginRight: "1rem",
             }}
           />
         ) : (
           <FaRegStar
-            onChange={props.handleToggleFavorite}
+            onClick={(id) => toggleFavorite(item.id)}
             style={{
               cursor: "pointer",
               float: "right",
@@ -70,7 +80,15 @@ export const ShoppingItem = (props) => {
           />
         )}
       </div>
-      <div className="panel-body">Quantity: {props.item.quantity}</div>
+      <div className="panel-body">
+        <span onClick={() => setMoreInfo(!moreInfo)}>
+          {moreInfo ? "Less" : "More"} info...
+        </span>
+        <ul>
+          <li>Quantity: {props.item.quantity}</li>
+          {moreInfo ? <li>Sugar: {props.item.nutrition[0].sugars} g</li> : null}
+        </ul>{" "}
+      </div>
     </div>
   );
 };

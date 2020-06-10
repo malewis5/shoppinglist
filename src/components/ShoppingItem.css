@@ -1,0 +1,9 @@
+span {
+  float: right;
+  color: lightgray;
+}
+
+span:hover {
+  color: grey;
+  cursor: pointer;
+}

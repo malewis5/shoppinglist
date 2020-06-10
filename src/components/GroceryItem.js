@@ -21,17 +21,17 @@ export const GroceryItem = (props) => {
         />
         {props.item.favorite ? (
           <FaStar
-            onChange={props.handleToggleFavorite}
+            onClick={(id) => props.handleToggleFavorite(id)}
             style={{
               cursor: "pointer",
               float: "right",
-              color: "black",
+              color: "yellow",
               marginRight: "1rem",
             }}
           />
         ) : (
           <FaRegStar
-            onChange={props.handleToggleFavorite}
+            onClick={(id) => props.handleToggleFavorite(id)}
             style={{
               cursor: "pointer",
               float: "right",
