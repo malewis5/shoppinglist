@@ -15,9 +15,15 @@ function App() {
       <CartProvider>
         <Header branding="Peak Test" />
         <div className="container">
-          <AddGroceryItem />
-          <GroceryList />
-          <ShoppingList />
+          <div className="add-item">
+            <AddGroceryItem />
+          </div>
+          <div className="shopping-list">
+            <ShoppingList />
+          </div>
+          <div className="grocery-list">
+            <GroceryList />
+          </div>
         </div>
       </CartProvider>
     </GroceryProvider>

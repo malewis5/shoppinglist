@@ -6,9 +6,8 @@ export const ShoppingList = () => {
   const [cartItems] = useContext(CartContext);
   return (
     <div>
-      <div className="grocery-list">
-        <h1>Shopping List</h1>
-      </div>
+      <h1 className="display-4 mb-2">Shopping List</h1>
+
       {cartItems.length
         ? cartItems.map((item) => {
             return <ShoppingItem item={item} key={item.id} />;
