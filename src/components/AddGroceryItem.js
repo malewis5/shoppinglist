@@ -47,7 +47,7 @@ export const AddGroceryItem = () => {
       setSugars("");
       return alert("Item already exists");
     }
-    setItems([...items, newItem]);
+    setItems([newItem, ...items]);
     setName("");
     setQuantity("");
     setFavorite(false);

@@ -1,15 +1,15 @@
 .shopping-list {
   float: right;
-  width: 30%;
+  width: 400px;
   padding-left: 20px;
 }
 
 .grocery-list {
-  width: 30%;
+  width: 300px;
   float: right;
 }
 
 .add-item {
-  width: 25%;
+  width: 400px;
   position: fixed;
 }
