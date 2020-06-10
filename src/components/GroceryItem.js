@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./GroceryItem.css";
 import { FaTimes, FaCartPlus, FaRegStar, FaStar } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 import { GroceryContext } from "../context/GroceryContext";
@@ -37,37 +38,22 @@ export const GroceryItem = (props) => {
       <div className="panel-heading">
         {props.item.name}
         <FaTimes
-          style={{ cursor: "pointer", float: "right", color: "red" }}
+          className="icon-red"
           onClick={(id) => deleteFromList(props.item.id)}
         />
         <FaCartPlus
+          className="icon"
           onClick={(item) => addToCart(props.item)}
-          style={{
-            cursor: "pointer",
-            float: "right",
-            color: "black",
-            marginRight: "1rem",
-          }}
         />
         {props.item.favorite ? (
           <FaStar
+            className="icon-favorite"
             onClick={(id) => toggleFavorite(props.item.id)}
-            style={{
-              cursor: "pointer",
-              float: "right",
-              color: "yellow",
-              marginRight: "1rem",
-            }}
           />
         ) : (
           <FaRegStar
+            className="icon"
             onClick={(id) => toggleFavorite(props.item.id)}
-            style={{
-              cursor: "pointer",
-              float: "right",
-              color: "black",
-              marginRight: "1rem",
-            }}
           />
         )}
       </div>

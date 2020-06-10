@@ -1,0 +1,29 @@
+.icon {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+}
+.icon-red {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+}
+
+.icon-red:hover {
+  color: red;
+}
+
+.icon-favorite {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+  color: yellow;
+}
+
+.icon:hover {
+  opacity: 50%;
+}
+
+.icon-favorite:hover {
+  opacity: 50%;
+}

@@ -43,35 +43,26 @@ export const ShoppingItem = (props) => {
         {props.item.name}
 
         <FaTimes
+          className="icon-red"
           onClick={(id) => deleteFromList(props.item.id)}
-          style={{ cursor: "pointer", float: "right", color: "red" }}
         />
         <FaRegMinusSquare
+          className="icon-minus"
           onClick={(type, id) => changeQuantity("DECREMENT", props.item.id)}
-          style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
         />
         <FaRegPlusSquare
+          className="icon-plus"
           onClick={(type, id) => changeQuantity("INCREMENT", props.item.id)}
-          style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
         />
         {props.item.favorite ? (
           <FaStar
+            className="icon-favorite"
             onClick={(id) => toggleFavorite(props.item.id)}
-            style={{
-              cursor: "pointer",
-              float: "right",
-              color: "yellow",
-              marginRight: "1rem",
-            }}
           />
         ) : (
           <FaRegStar
+            className="icon"
             onClick={(id) => toggleFavorite(props.item.id)}
-            style={{
-              cursor: "pointer",
-              float: "right",
-              marginRight: "1rem",
-            }}
           />
         )}
       </div>

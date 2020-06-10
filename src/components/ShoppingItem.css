@@ -7,3 +7,29 @@ span:hover {
   color: grey;
   cursor: pointer;
 }
+
+.icon {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+}
+
+.icon-plus {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+}
+
+.icon-plus:hover {
+  color: green;
+}
+
+.icon-minus {
+  cursor: pointer;
+  float: right;
+  margin-right: 1rem;
+}
+
+.icon-minus:hover {
+  color: red;
+}
