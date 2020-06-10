@@ -33,22 +33,19 @@ export const GroceryList = (props) => {
   };
 
   return (
-    <div className="grocery-list">
-      <h1>Grocery List</h1>
-
-      <div className="list-content">
-        {items.map((item) => {
-          return (
-            <GroceryItem
-              item={item}
-              key={item.id}
-              handleDeleteClick={handleDeleteClick.bind(this, item.id)}
-              handleToggleFavorite={handleToggleFavorite.bind(this, item.id)}
-              handleAddToCart={handleAddToCart.bind(this, item)}
-            />
-          );
-        })}
-      </div>
+    <div>
+      <h1 className="display-4 mb-2">Grocery List</h1>
+      {items.map((item) => {
+        return (
+          <GroceryItem
+            item={item}
+            key={item.id}
+            handleDeleteClick={handleDeleteClick.bind(this, item.id)}
+            handleToggleFavorite={handleToggleFavorite.bind(this, item.id)}
+            handleAddToCart={handleAddToCart.bind(this, item)}
+          />
+        );
+      })}
     </div>
   );
 };

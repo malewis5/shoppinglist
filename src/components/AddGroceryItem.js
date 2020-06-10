@@ -58,51 +58,70 @@ export const AddGroceryItem = () => {
     <div>
       <h1>Add Item</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          required
-          type="text"
-          name="name"
-          placeholder="Item Name..."
-          value={name}
-          onChange={handleNameChange}
-        />
-        <input
-          required
-          min="0"
-          type="number"
-          name="quantity"
-          placeholder="Quantity"
-          value={quantity}
-          onChange={handleQuantityChange}
-        />
-        <p>
-          Mark as Favorite
-          {favorite ? (
+      <form className="form-horizontal" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="item-name" className="col-sm-2 control-label">
+            Item Name
+          </label>
+          <div className="col-sm-10">
             <input
-              type="checkbox"
-              name="favorite"
-              checked
-              onClick={() => setFavorite(!favorite)}
+              required
+              type="text"
+              className="form-control"
+              id="item-name"
+              placeholder="Enter Item Name..."
+              value={name}
+              onChange={handleNameChange}
             />
-          ) : (
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="quantity" className="col-sm-2 control-label">
+            Quantity
+          </label>
+          <div className="col-sm-10">
             <input
-              type="checkbox"
-              name="favorite"
-              onClick={() => setFavorite(!favorite)}
+              min="0"
+              type="number"
+              className="form-control"
+              id="quantity"
+              placeholder="Enter Quantity..."
+              value={quantity}
+              onChange={handleQuantityChange}
             />
-          )}
-        </p>
-
-        <input
-          required
-          type="number"
-          name="sugars"
-          placeholder="Sugars"
-          value={sugars}
-          onChange={handleSugarChange}
-        />
-        <button>Submit</button>
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="sugar" className="col-sm-2 control-label">
+            Sugars
+          </label>
+          <div className="col-sm-10">
+            <input
+              type="number"
+              className="form-control"
+              id="sugar"
+              placeholder="Sugar per serving..."
+              value={sugars}
+              onChange={handleSugarChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="col-sm-offset-2 col-sm-10">
+            <div className="checkbox">
+              <label>
+                <input type="checkbox" /> Set as Favorite?
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="col-sm-offset-2 col-sm-10">
+            <button type="submit" className="btn btn-default">
+              Add Item
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
