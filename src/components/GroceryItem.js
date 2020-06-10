@@ -17,11 +17,15 @@ export const GroceryItem = (props) => {
     const newItem = {
       ...item,
     };
-    if (cartItems.length === 0) {
-      setCartItems([newItem]);
-    } else {
-      setCartItems([...cartItems, newItem]);
+    const duplicateCheck =
+      cartItems.findIndex((elem) => elem.id === newItem.id) !== -1;
+    if (duplicateCheck) {
+      const newState = [...cartItems];
+      const index = cartItems.findIndex((elem) => elem.id === newItem.id);
+      newState[index].quantity++;
+      return setCartItems(newState);
     }
+    setCartItems([...cartItems, newItem]);
   };
   const deleteFromList = (id) => {
     const newState = items.filter((elem) => elem.id !== id);

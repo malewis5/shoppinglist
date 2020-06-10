@@ -79,10 +79,12 @@ export const ShoppingItem = (props) => {
         <span onClick={() => setMoreInfo(!moreInfo)}>
           {moreInfo ? "Less" : "More"} info...
         </span>
-        <ul>
-          <li>Quantity: {props.item.quantity}</li>
-          {moreInfo ? <li>Sugar: {props.item.nutrition[0].sugars} g</li> : null}
-        </ul>{" "}
+        Quantity: {props.item.quantity}
+        {moreInfo ? (
+          <ul>
+            <li>Sugar: {props.item.nutrition[0].sugars} grams </li>
+          </ul>
+        ) : null}{" "}
       </div>
     </div>
   );
