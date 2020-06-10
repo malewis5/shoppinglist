@@ -110,7 +110,19 @@ export const AddGroceryItem = () => {
           <div className="col-sm-offset-2 col-sm-10">
             <div className="checkbox">
               <label>
-                <input type="checkbox" /> Set as Favorite?
+                {favorite ? (
+                  <input
+                    type="checkbox"
+                    onClick={() => setFavorite(!favorite)}
+                    checked
+                  />
+                ) : (
+                  <input
+                    type="checkbox"
+                    onClick={() => setFavorite(!favorite)}
+                  />
+                )}
+                Set as Favorite?
               </label>
             </div>
           </div>

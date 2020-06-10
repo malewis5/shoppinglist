@@ -3,7 +3,7 @@ export const data = [
     id: 1,
     name: "Carrots",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 3,
@@ -15,7 +15,7 @@ export const data = [
     id: 2,
     name: "Milk",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 7,
@@ -27,7 +27,7 @@ export const data = [
     id: 3,
     name: "Butter",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 2,
@@ -39,7 +39,7 @@ export const data = [
     id: 4,
     name: "Eggs",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 4,
@@ -51,7 +51,7 @@ export const data = [
     id: 5,
     name: "Oranges",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 1,
@@ -63,7 +63,7 @@ export const data = [
     id: 6,
     name: "Blueberries",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 19,
@@ -75,7 +75,7 @@ export const data = [
     id: 7,
     name: "Apples",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 7,
@@ -87,7 +87,7 @@ export const data = [
     id: 8,
     name: "Bread",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 5,
@@ -99,7 +99,7 @@ export const data = [
     id: 9,
     name: "Coffee",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 4,
@@ -111,7 +111,7 @@ export const data = [
     id: 10,
     name: "Pancakes",
     favorite: false,
-    quantity: 0,
+    quantity: 1,
     nutrition: [
       {
         sugars: 11,

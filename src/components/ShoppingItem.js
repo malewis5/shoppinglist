@@ -1,5 +1,12 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import {
+  FaTimes,
+  FaRegPlusSquare,
+  FaRegStar,
+  FaStar,
+  FaRegMinusSquare,
+} from "react-icons/fa";
 
 export const ShoppingItem = (props) => {
   const { item } = props;
@@ -26,20 +33,44 @@ export const ShoppingItem = (props) => {
     setCartItems(newState);
   };
   return (
-    <div>
-      <li>{props.item.name}</li>
-      <li>Quantity: {props.item.quantity}</li>
-      <button onClick={() => increaseCount(item)}>Increase</button>
-      <button onClick={() => decreaseCount(item)}>Decrease</button>
-      <button onClick={() => removeFromCart(item)}>Remove From Cart</button>
-      <button onClick={() => setShowNutrition(!showNutrition)}>
-        Show Nutrition
-      </button>
-      {showNutrition ? (
-        <div className="nutrition">{`${props.item.nutrition[0].sugars} g sugar`}</div>
-      ) : (
-        ""
-      )}
+    <div className="panel panel-default">
+      <div className="panel-heading">
+        {props.item.name}
+        <FaTimes
+          style={{ cursor: "pointer", float: "right", color: "red" }}
+          onClick={() => removeFromCart(item)}
+        />
+        <FaRegMinusSquare
+          style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
+          onClick={() => decreaseCount(item)}
+        />
+        <FaRegPlusSquare
+          style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
+          onClick={() => increaseCount(item)}
+        />
+        {props.item.favorite ? (
+          <FaStar
+            onChange={props.handleToggleFavorite}
+            style={{
+              cursor: "pointer",
+              float: "right",
+              color: "black",
+              marginRight: "1rem",
+            }}
+          />
+        ) : (
+          <FaRegStar
+            onChange={props.handleToggleFavorite}
+            style={{
+              cursor: "pointer",
+              float: "right",
+              color: "black",
+              marginRight: "1rem",
+            }}
+          />
+        )}
+      </div>
+      <div className="panel-body">Quantity: {props.item.quantity}</div>
     </div>
   );
 };
