@@ -7,32 +7,28 @@ import {
   FaRegStar,
   FaStar,
   FaRegMinusSquare,
-  FaArrowDown,
 } from "react-icons/fa";
 
 export const ShoppingItem = (props) => {
-  const { item } = props;
   const [cartItems, setCartItems] = useContext(CartContext);
   const [moreInfo, setMoreInfo] = useState(false);
 
-  const increaseCount = (item) => {
-    const index = cartItems.findIndex((elem) => elem.name === item.name);
-    const newState = [...cartItems];
-    newState[index].quantity++;
+  const deleteFromList = (id) => {
+    const newState = cartItems.filter((elem) => elem.id !== id);
     setCartItems(newState);
   };
-  const decreaseCount = (item) => {
-    const index = cartItems.findIndex((elem) => elem.name === item.name);
+  const changeQuantity = (type, id) => {
+    const index = cartItems.findIndex((elem) => elem.id === id);
     let newState = [...cartItems];
-    newState[index].quantity--;
-    if (newState[index].quantity <= 0) {
-      newState = cartItems.filter((elem) => elem.id !== item.id);
+    if (type === "DECREMENT") {
+      newState[index].quantity--;
     }
-    setCartItems(newState);
-  };
-  const removeFromCart = (item) => {
-    const newState = cartItems.filter((elem) => elem.id !== item.id);
-    item.quantity = 0;
+    if (type === "INCREMENT") {
+      newState[index].quantity++;
+    }
+    if (newState[index].quantity <= 0) {
+      newState = cartItems.filter((elem) => elem.id !== id);
+    }
     setCartItems(newState);
   };
   const toggleFavorite = (id) => {
@@ -47,20 +43,20 @@ export const ShoppingItem = (props) => {
         {props.item.name}
 
         <FaTimes
+          onClick={(id) => deleteFromList(props.item.id)}
           style={{ cursor: "pointer", float: "right", color: "red" }}
-          onClick={() => removeFromCart(item)}
         />
         <FaRegMinusSquare
+          onClick={(type, id) => changeQuantity("DECREMENT", props.item.id)}
           style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
-          onClick={() => decreaseCount(item)}
         />
         <FaRegPlusSquare
+          onClick={(type, id) => changeQuantity("INCREMENT", props.item.id)}
           style={{ cursor: "pointer", float: "right", marginRight: "1rem" }}
-          onClick={() => increaseCount(item)}
         />
         {props.item.favorite ? (
           <FaStar
-            onClick={(id) => toggleFavorite(item.id)}
+            onClick={(id) => toggleFavorite(props.item.id)}
             style={{
               cursor: "pointer",
               float: "right",
@@ -70,11 +66,10 @@ export const ShoppingItem = (props) => {
           />
         ) : (
           <FaRegStar
-            onClick={(id) => toggleFavorite(item.id)}
+            onClick={(id) => toggleFavorite(props.item.id)}
             style={{
               cursor: "pointer",
               float: "right",
-              color: "black",
               marginRight: "1rem",
             }}
           />

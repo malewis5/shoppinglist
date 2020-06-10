@@ -9,9 +9,11 @@ export const ShoppingList = () => {
       <div className="grocery-list">
         <h1>Shopping List</h1>
       </div>
-      {cartItems.map((item) => {
-        return <ShoppingItem item={item} key={item.id} />;
-      })}
+      {cartItems.length
+        ? cartItems.map((item) => {
+            return <ShoppingItem item={item} key={item.id} />;
+          })
+        : "Cart is Empty"}
     </div>
   );
 };
