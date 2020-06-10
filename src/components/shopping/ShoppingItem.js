@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./ShoppingItem.css";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import {
   FaTimes,
   FaRegPlusSquare,

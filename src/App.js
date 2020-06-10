@@ -4,9 +4,9 @@ import { GroceryProvider } from "./context/GroceryContext";
 import { CartProvider } from "./context/CartContext";
 
 //Custom Components
-import { GroceryList } from "./components/GroceryList";
-import { AddGroceryItem } from "./components/AddGroceryItem";
-import { ShoppingList } from "./components/ShoppingList";
+import { GroceryList } from "./components/grocery/GroceryList";
+import { AddGroceryItem } from "./components/grocery/AddGroceryItem";
+import { ShoppingList } from "./components/shopping/ShoppingList";
 import { Header } from "./components/layout/header";
 
 function App() {

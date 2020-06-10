@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "./GroceryItem.css";
 import { FaTimes, FaCartPlus, FaRegStar, FaStar } from "react-icons/fa";
-import { CartContext } from "../context/CartContext";
-import { GroceryContext } from "../context/GroceryContext";
+import { CartContext } from "../../context/CartContext";
+import { GroceryContext } from "../../context/GroceryContext";
 
 export const GroceryItem = (props) => {
   const [cartItems, setCartItems] = useContext(CartContext);
